@@ -73,22 +73,50 @@
 
 // EXO 9
 
-let nbr = parseInt(prompt = ("Nombre 1"))
-let nbr2 = parseInt(prompt = ("Nombre 2"));
+let nb1 = parseInt(prompt("Nombre 1 ?"));
+let nb2 = parseInt(prompt("Nombre 2 ?"));
+let op = prompt("Opérateur ?");
 
-let operator;
+let add = (nb1, nb2) => {
+    return (nb1 + nb2);
+}
+let sous = (nb1, nb2) => {
+    return (nb1 - nb2);
+}
+let multi = (nb1, nb2) => {
+    return (nb1 * nb2);
+}
+let div = (nb1, nb2) => {
+    return (nb1 / nb2);
+}
 
-switch (operator) {
-    case "+":
+let calcul = (nb1, nb2, op) => {
+    let operateurs = ["+", "-", "*", "/"];
+    let resultat;
+    if (operateurs.includes(op)) {
+        switch (op) {
+            case "+":
+                resultat = add(nb1, nb2);
+                break;
         
-        break;
-
-    default:
-        break;
+            case "-":
+                resultat = sous(nb1, nb2);
+                break;
+        
+            case "*":
+                resultat = multi(nb1, nb2);
+                break;
+        
+            case "/":
+                resultat = div(nb1, nb2);
+                break;
+        
+            default:
+                console.log("Erreur - mauvais opérateur");
+                break;
+        }
+    }
+    return resultat
 }
 
-let calcul = (nbr, operator, nbr2) => {
-    (nbr operator nbr2)
-}
-
-console.log(calcul());
+console.log(calcul(nb1, nb2, op));
